@@ -45,14 +45,17 @@ and collect puppets for the show? Only time will tell...
     # Capture Mechanic
     print(
         f"As {first_anomaly.name} falls, you find a Collar and Leash for "
-        f"capturing puppets.")
+        f"capturing puppets. You see a puppet approaching, and your "
+        f"excitement grows. 'I must have this puppet for my puppet show' you "
+        f"think to yourself...")
     player.current_cap_tool = CaptureItems(name="Collar and Leash",
                                            maxCapture=1)
 
     # Capture First Puppet
-    squashed = puppet_town.puppets[0]
-    print(player.capture_puppet(squashed))
+    shiny = puppet_town.puppets[0]
+    print(player.capture_puppet(shiny))
     print(player.equipped_items())
+    player.puppet_play()
 
     print("You continue the journey through the town. You hear <some shit to"
           "to represent anomaly 2. I don't know how to write this shit")
@@ -63,9 +66,12 @@ and collect puppets for the show? Only time will tell...
           f"and collar. You realize soon you will have another puppet, "
           f"but with that, you will need a place to make sure they are "
           f"safely kept to prevent them from joining the anomaly horde....")
-    print("Just then, you see a new puppet. This one immediately catches "
-          "your eye. 'I must have this puppet you think to yourself'....")
-    shiny = puppet_town.puppets[1]
+    print("Just then, you see a new puppet. 'When the times is right, "
+          "this silly puppet should be fun.....'....")
+    jester = puppet_town.puppets[1]
+    print(player.capture_puppet(shiny))
+    print(player.equipped_items())
+    input("")
     print("""
 You continue your journey through the town. You stop, and see a shop. Would 
 you like to stop in? 
@@ -78,6 +84,20 @@ you like to stop in?
         shop.get_items(player=player)
     else:
         print("You continue you journey")
-    player.
+    print(f"""
+The shopkeeper speaks to you:
+You are the puppet master aren't you? {player.name}? Anyone that is here to 
+save puppet town from this anomalies need not pay. You can have these items 
+for free. Thank you for saving the puppets, without a puppet master like you
+they would be lost. He hands you the items
+""")
+    print(f"You receive {shop.items[0].name}, {shop.items[1].name}. You "
+          f"thank the shopkeeper and continue your journey")
+    add_health = input("Would you like to take you health potion now?")
+    if add_health == "1":
+        player.take_health_potion()
+    input("You continue your journey")
+    input(f"{player.show_inventory()}")
+
 
 start_game()

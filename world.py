@@ -50,7 +50,7 @@ puppet_town = Location(
         "caused chaos, and only the Puppet Master can save the day."
     ),
     anomalies=[
-        Anomaly(name='Grumpy Puppet', damage=3, stats={
+        Anomaly(name='Squashed', damage=3, stats={
             "Skills": [
                 "Punches inanimate objects",
                 "Accuses video games of being rigged",
@@ -62,42 +62,47 @@ puppet_town = Location(
                 "Chair damage increased by 2"
             ]
         }),
-        Anomaly(name="The Next Anomaly", damage=4, stats={
+        Anomaly(name="Suckubus", damage=4, stats={
             "Skills": [
-                "Skill 1",
-                "Skill 2",
-                "Skill 3",
+                "Flirts with everyone, even in battle",
+                "Pretends to tamper with enemy plans but gets lazy",
+                "Says mean things that upset everyone, including her allies",
             ],
             "Weaknesses": [
-                "Weakness 1",
-                "Weakness 2",
-                "Weakness 3"
+                "Thinks everyone loves her, gets hit harder when they don’t",
+                "Falls for any compliment, easily tricked",
+                "Her mean spirit makes allies slow to help her"
             ]
         }),
-        Anomaly(name="Final Anomaly", damage=5, stats={
+        Anomaly(name="Darkfeather", damage=5, stats={
             "Skills": [
-                "Skill 1",
-                "Skill 2",
-                "Skill 3"
+                "Touts vague qualifications and overstates alliances",
+                "Keeps a close watch on her top 5, gets upset if ranks change",
+                "Perceives shadows following her, grows paranoid"
             ],
             "Weaknesses": [
-                "Weakness 1",
-                "Weakness 2",
-                "Weakness 3"
+                "Demands exclusivity, alienating herself",
+                "Gossip backfires, causing chaos in her ranks",
+                "Feels the sting of imagined frost"
             ]
         })
     ],
     puppets=[
-        Puppet(name="Squashed", abilities={
-            "Endurance": "Low",
-            "Knowledge": "Low",
+        Puppet(name="Shiny", abilities={
+            "Endurance": "",
+            "Knowledge": "",
+            "Special Skill": ""
+        }),
+        Puppet(name="Jester", abilities={
+            "Endurance": "",
+            "Knowledge": "",
             "Special Skill": ""
         }
                ),
-        Puppet(name="Shiny", abilities={
-            "Endurance": "Medium",
-            "Knowledge": "Medium",
-            "Special Skill": "TBD"
+        Puppet(name="Highmark", abilities={
+            "Endurance": "",
+            "Knowledge": "",
+            "Special Skill": ""
         })
     ],
     shop=puppet_town_shop

@@ -1,0 +1,28 @@
+game.py
+    - Game
+
+player.py
+    - Player
+
+enemy.py
+    - Enemy
+
+item.py
+    - Item
+
+world.py
+    - World
+    - Location
+
+combat.py
+    - Combat
+
+quest.py
+    - Quest
+
+shop.py
+    - Shop
+
+
+Combat removes 3-10 random from durability on weapons, damage accepted
+removes 1-6% durability on armor

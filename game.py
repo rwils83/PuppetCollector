@@ -5,99 +5,101 @@ from puppets import Puppet
 from item import Weapon, Armor, HealthPotion, CaptureItems
 
 
-def start_game():
-    print("""
+class Game:
+    def __init__(self):
+        self.player = None
+
+    def start_game(self):
+        self.introduce_game()
+        self.create_player()
+        self.equip_player()
+        self.explore_puppet_town()
+
+    def introduce_game(self):
+        print("""
 One day in Gnomious, a brave soul willing to collect all the 
 puppets needed for a proper puppet show went on a mission. The first 
 destination: Puppet Town. Can our hero rid the world of anomalies 
 and collect puppets for the show? Only time will tell...
 """)
 
-    # Create Player
-    player_name = input("Enter your name here: \r\n")
-    player = Player(name=player_name)
-    print(f"Welcome, {player.name}. Your mission begins!")
+    def create_player(self):
+        player_name = input("Enter your name here: \r\n")
+        self.player = Player(name=player_name)
+        print(f"Welcome, {self.player.name}. Your mission begins!")
 
-    # Equip Player
-    player.current_weapon = Weapon(name='Pink Dildo', damage=5)
-    player.current_armor = Armor(name='Leather Harness and Chaps',
-                                 health_mod=2)
+    def equip_player(self):
+        self.player.current_weapon = Weapon(name='Pink Dildo', damage=5)
+        self.player.current_armor = Armor(name='Leather Harness and Chaps',
+                                          health_mod=2)
+        print(f"Armed with {self.player.current_weapon.name} and "
+              f"{self.player.current_armor.name}, you enter Puppet Town.\n")
 
-    print("You first arrive at Puppet Town. You have researched this town....")
-    # Display Puppet Town Intro
-    print(f"{puppet_town.description}")
-    print(
-        "\nPuppet Mayor: Please help us, Puppet Master! Rid our town of "
-        "anomalies and restore fun.")
+    def start_combat(self, anomaly):
+        print(
+            f"You hear a strange sound and realize an anomaly is approaching: {anomaly.name}!")
+        combat = Combat(self.player, anomaly)
+        combat.combat_loop()
+        print(f"You have defeated {anomaly.name}!")
 
-    print(
-        f"Armed with {player.current_weapon.name} and "
-        f"{player.current_armor.name}, you enter Puppet Town.\n")
+    def capture_puppet(self, puppet, item_name="Collar and Leash"):
+        print(
+            f"As you explore, you find a {item_name} and spot {puppet.name}.")
+        self.player.current_cap_tool = CaptureItems(name=item_name,
+                                                    maxCapture=1)
+        print(self.player.capture_puppet(puppet))
 
-    # Initialize First Combat
-    print("As you walk through the town, you hear a sound that can only be "
-          "described as a bulldozer plowing through the town. "
-          "You quickly realize what has happened....")
-    first_anomaly = puppet_town.anomalies[0]
-    combat_1 = Combat(player, first_anomaly)
-    combat_1.combat_loop()
+    def explore_puppet_town(self):
+        # Intro Narrative
+        print(f"{puppet_town.description}")
+        print(
+            "Puppet Mayor: Please help us, Puppet Master! Rid our town of "
+            "anomalies and restore fun.\n")
 
-    # Capture Mechanic
-    print(
-        f"As {first_anomaly.name} falls, you find a Collar and Leash for "
-        f"capturing puppets. You see a puppet approaching, and your "
-        f"excitement grows. 'I must have this puppet for my puppet show' you "
-        f"think to yourself...")
-    player.current_cap_tool = CaptureItems(name="Collar and Leash",
-                                           maxCapture=1)
+        # Combat and Puppet Captures
+        self.start_combat(puppet_town.anomalies[0])
+        self.capture_puppet(puppet_town.puppets[0])
 
-    # Capture First Puppet
-    shiny = puppet_town.puppets[0]
-    print(player.capture_puppet(shiny))
-    print(player.equipped_items())
-    player.puppet_play()
+        self.start_combat(puppet_town.anomalies[1])
+        self.capture_puppet(puppet_town.puppets[1])
 
-    print("You continue the journey through the town. You hear <some shit to"
-          "to represent anomaly 2. I don't know how to write this shit")
-    second_anomaly = puppet_town.anomalies[1]
-    combat_2 = Combat(player, second_anomaly)
-    combat_2.combat_loop()
-    print(f"You have slain {second_anomaly.name}. You receive another leash "
-          f"and collar. You realize soon you will have another puppet, "
-          f"but with that, you will need a place to make sure they are "
-          f"safely kept to prevent them from joining the anomaly horde....")
-    print("Just then, you see a new puppet. 'When the times is right, "
-          "this silly puppet should be fun.....'....")
-    jester = puppet_town.puppets[1]
-    print(player.capture_puppet(shiny))
-    print(player.equipped_items())
-    input("")
-    print("""
-You continue your journey through the town. You stop, and see a shop. Would 
-you like to stop in? 
-1. Yes
-2. No""")
-    enter_shop = input("")
-    shop = puppet_town.shop
-    if enter_shop == "1":
-        shop.enter_shop()
-        shop.get_items(player=player)
-    else:
-        print("You continue you journey")
-    print(f"""
-The shopkeeper speaks to you:
-You are the puppet master aren't you? {player.name}? Anyone that is here to 
-save puppet town from this anomalies need not pay. You can have these items 
-for free. Thank you for saving the puppets, without a puppet master like you
-they would be lost. He hands you the items
-""")
-    print(f"You receive {shop.items[0].name}, {shop.items[1].name}. You "
-          f"thank the shopkeeper and continue your journey")
-    add_health = input("Would you like to take you health potion now?")
-    if add_health == "1":
-        player.take_health_potion()
-    input("You continue your journey")
-    input(f"{player.show_inventory()}")
+        # Shop Interaction
+        self.visit_shop()
+
+        # Final Combat and Puppet Capture
+        self.start_combat(puppet_town.anomalies[2])
+        self.capture_puppet(puppet_town.puppets[2])
+
+    def visit_shop(self):
+        print("You encounter a shop. Would you like to enter?")
+        enter_shop = self.get_input(["1. Yes", "2. No"], [1, 2])
+
+        if enter_shop == 1:
+            shop = puppet_town.shop
+            shop.enter_shop()
+            shop.get_items(player=self.player)
+            print(f"You receive {shop.items[0].name}, {shop.items[1].name}.")
+            add_health = self.get_input(
+                "Would you like to use your health potion?", [1, 2])
+            if add_health == 1:
+                self.player.take_health_potion()
+        else:
+            print("You decide to continue your journey.")
+
+    def get_input(self, prompt, valid_choices):
+        """Helper method for input validation."""
+        while True:
+            print("\n".join(prompt if isinstance(prompt, list) else [prompt]))
+            choice = input("Enter your choice: ")
+            try:
+                choice = int(choice)
+                if choice in valid_choices:
+                    return choice
+            except ValueError:
+                pass
+            print("Invalid choice. Please try again.")
 
 
-start_game()
+if __name__ == "__main__":
+    game = Game()
+    game.start_game()

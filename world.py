@@ -37,8 +37,8 @@ class Shop:
 puppet_town_shop = Shop(
     name="Blame It on the Tonic",
     items=[
-        HealthPotion(name="Puppet Town Health Potion", amount="100"),
-        Spells(name="Medicinal Spell", damgeMod="20")
+        HealthPotion(name="Puppet Town Health Potion", amount=100),
+        Spells(name="Medicinal Spell", damgeMod=20)
     ],
     free=True
 )

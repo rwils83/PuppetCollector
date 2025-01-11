@@ -43,6 +43,7 @@ class CaptureItems(Item):
         self.name = name
         self.maxCapture = maxCapture
 
+
 class Spells(Item):
     def __init__(self, name, damgeMod):
         super().__init__()

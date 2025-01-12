@@ -66,18 +66,18 @@ and collect puppets for the show? Only time will tell...
         self.capture_puppet(town.puppets[1])
 
         # Shop Interaction
-        self.visit_shop()
+        self.visit_shop(town)
 
         # Final Combat and Puppet Capture
         self.start_combat(town.anomalies[2])
         self.capture_puppet(town.puppets[2])
 
-    def visit_shop(self):
+    def visit_shop(self, town):
         print("You encounter a shop. Would you like to enter?")
         enter_shop = self.get_input(["1. Yes", "2. No"], [1, 2])
 
         if enter_shop == 1:
-            shop = puppet_town.shop
+            shop = town.shop
             shop.enter_shop()
             shop.get_items(player=self.player)
             print(f"You receive {shop.items[0].name}, {shop.items[1].name}.")

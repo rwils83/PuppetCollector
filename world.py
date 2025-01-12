@@ -52,8 +52,10 @@ stranger_things_shop = Shop(
     free=True
 )
 upside_down_shop = Shop(
-    name="",
+    name="Upside down shop",
     items=[
+        HealthPotion(name="PlaceHolderHealthPotion", amount=100),
+        Spells(name="PlaceHolderSpells", damgeMod=20)
 
     ],
     free=True
@@ -148,28 +150,52 @@ puppet_town = Location(
 
 stranger_things = Location(
     name="Stranger Things",
-    description="",
+    description="Stranger Things Description Place Holder",
     anomalies=[
         Anomaly(
-            name="",
+            name="stranger_things Anomaly Placeholder 1",
             damage=5,
             stats={
-                "Skills":[],
-                "Weaknesses":[]
+                "Skills":[
+                    "stranger_things Anomaly Placeholder 1 Skills 1",
+                    "stranger_things Anomaly Placeholder 1 Skills 2",
+                    "stranger_things Anomaly Placeholder 1 Skills 3"
+                ],
+                "Weaknesses":[
+                    "stranger_things Anomaly Placeholder 1 Weaknesses 1",
+                    "stranger_things Anomaly Placeholder 1 Weaknesses 2",
+                    "stranger_things Anomaly Placeholder 1 Weaknesses 3"
+                ]
             }
         ),
         Anomaly(
-            name="",
+            name="stranger_things Anomaly Placeholder 2",
             damage=7, stats={
-                "Skills":[],
-                "Weaknesses":[]
+                "Skills":[
+                    "stranger_things Anomaly Placeholder 1 Skills 1",
+                    "stranger_things Anomaly Placeholder 1 Skills 2",
+                    "stranger_things Anomaly Placeholder 1 Skills 3"
+                ],
+                "Weaknesses":[
+                    "stranger_things Anomaly Placeholder 1 Weaknesses 1",
+                    "stranger_things Anomaly Placeholder 1 Weaknesses 2",
+                    "stranger_things Anomaly Placeholder 1 Weaknesses 3"
+                ]
             }
         ),
         Anomaly(
-            name="",
+            name="stranger_things Anomaly Placeholder 3",
             damage=8, stats={
-                "Skills":[],
-                "Weaknesses":[]
+                "Skills": [
+                    "stranger_things Anomaly Placeholder 1 Skills 1",
+                    "stranger_things Anomaly Placeholder 1 Skills 2",
+                    "stranger_things Anomaly Placeholder 1 Skills 3"
+                ],
+                "Weaknesses":[
+                    "stranger_things Anomaly Placeholder 1 Weaknesses 1",
+                    "stranger_things Anomaly Placeholder 1 Weaknesses 2",
+                    "stranger_things Anomaly Placeholder 1 Weaknesses 3"
+                ]
             }
         )
     ],
@@ -191,7 +217,7 @@ stranger_things = Location(
             }
         ),
         Puppet(
-            name="place_holder",
+            name="stranger_things place_holder",
             abilities={
                 "Endurance": "",
                 "Knowledge": "",
@@ -204,27 +230,51 @@ stranger_things = Location(
 
 upside_down = Location(
     name="The Upside Down",
-    description="",
+    description="The Upside Down Placeholder Description",
     anomalies=[
         Anomaly(
-            name="",
-            damage=5, stats={
-                "Skills": [],
-                "Weaknesses":[]
-            }
-        ),
-        Anomaly(
-            name="",
-            damage=7, stats={
-                "Skills": [],
-                "Weaknesses":[]
-            }
-        ),
-        Anomaly(
-            name="",
+            name="upside_down Anomaly Placeholder 3",
             damage=8, stats={
-                "Skills": [],
-                "Weaknesses":[]
+                "Skills": [
+                    "upside_down Anomaly Placeholder 1 Skills 1",
+                    "upside_down Anomaly Placeholder 1 Skills 2",
+                    "upside_down Anomaly Placeholder 1 Skills 3"
+                ],
+                "Weaknesses": [
+                    "upside_down Anomaly Placeholder 1 Weaknesses 1",
+                    "upside_down Anomaly Placeholder 1 Weaknesses 2",
+                    "upside_down Anomaly Placeholder 1 Weaknesses 3"
+                ]
+            }
+        ),
+        Anomaly(
+            name="upside_down Anomaly Placeholder 3",
+            damage=8, stats={
+                "Skills": [
+                    "upside_down Anomaly Placeholder 1 Skills 1",
+                    "upside_down Anomaly Placeholder 1 Skills 2",
+                    "upside_down Anomaly Placeholder 1 Skills 3"
+                ],
+                "Weaknesses": [
+                    "upside_down Anomaly Placeholder 1 Weaknesses 1",
+                    "upside_down Anomaly Placeholder 1 Weaknesses 2",
+                    "upside_down Anomaly Placeholder 1 Weaknesses 3"
+                ]
+            }
+        ),
+        Anomaly(
+            name="upside_down Anomaly Placeholder 3",
+            damage=8, stats={
+                "Skills":[
+                    "upside_down Anomaly Placeholder 1 Skills 1",
+                    "upside_down Anomaly Placeholder 1 Skills 2",
+                    "upside_down Anomaly Placeholder 1 Skills 3"
+                ],
+                "Weaknesses":[
+                    "upside_down Anomaly Placeholder 1 Weaknesses 1",
+                    "upside_down Anomaly Placeholder 1 Weaknesses 2",
+                    "upside_down Anomaly Placeholder 1 Weaknesses 3"
+                ]
             }
         )
     ],
@@ -255,4 +305,11 @@ upside_down = Location(
         )
     ],
     shop=upside_down_shop
+)
+final_fight_town = Location(
+    name="",
+    description="",
+    anomalies=[],
+    puppets=[],
+    shop=""
 )

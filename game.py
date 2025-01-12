@@ -1,4 +1,4 @@
-from world import puppet_town
+from world import puppet_town, stranger_things, upside_down
 from player import Player
 from combat import Combat
 from puppets import Puppet
@@ -13,7 +13,9 @@ class Game:
         self.introduce_game()
         self.create_player()
         self.equip_player()
-        self.explore_puppet_town()
+        self.explore_town(puppet_town)
+        self.explore_town(stranger_things)
+        self.explore_town(upside_down)
 
     def introduce_game(self):
         print("""
@@ -49,26 +51,26 @@ and collect puppets for the show? Only time will tell...
                                                     maxCapture=1)
         print(self.player.capture_puppet(puppet))
 
-    def explore_puppet_town(self):
+    def explore_town(self, town):
         # Intro Narrative
-        print(f"{puppet_town.description}")
+        print(f"{town.description}")
         print(
             "Puppet Mayor: Please help us, Puppet Master! Rid our town of "
             "anomalies and restore fun.\n")
 
         # Combat and Puppet Captures
-        self.start_combat(puppet_town.anomalies[0])
-        self.capture_puppet(puppet_town.puppets[0])
+        self.start_combat(town.anomalies[0])
+        self.capture_puppet(town.puppets[0])
 
-        self.start_combat(puppet_town.anomalies[1])
-        self.capture_puppet(puppet_town.puppets[1])
+        self.start_combat(town.anomalies[1])
+        self.capture_puppet(town.puppets[1])
 
         # Shop Interaction
         self.visit_shop()
 
         # Final Combat and Puppet Capture
-        self.start_combat(puppet_town.anomalies[2])
-        self.capture_puppet(puppet_town.puppets[2])
+        self.start_combat(town.anomalies[2])
+        self.capture_puppet(town.puppets[2])
 
     def visit_shop(self):
         print("You encounter a shop. Would you like to enter?")

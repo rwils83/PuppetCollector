@@ -5,46 +5,18 @@
 * The main player
 ### Puppets
 * Collectable characters, like Pokemon but more fun
-* 
 ### Anomalies 
 * Bad puppets, ie the ones that don't fucking listen.
-
-## World and locations
-
-### Locations 
-* Puppet Town
-* Bridgetown 
-* Baresville 
-* Wildstown 
-* Lastkick
-
-## Items
-
-### Weapon Ideas
-* Chair
-* Chain (multipurpose)
-## Spell Ideas
-* Medicine
-
-### Puppet Capture Items
-* Ropes
-* Iron Maidens 
-* Collars and Leashes
-
-### Puppet Storage
-
-* Cages (storing puppets?)
-* String
-
-## Roadmap
-### Add abilities/skills/weaknesses? to Anomalies
-* Grumpy Puppet Skills
-  * Punches inanimate objects
-  * Accuses rigged games 
-  * entrapment
-### Add additional Anomalies
-### Types of puppets? Or just Puppet names? 
-### Make into window based execution instead of terminal based? Or leave 
-old school
-### Continue fleshing out the story line. 
-
+- [ ] Third Puppet for Stranger Things Town
+- [ ] 3 Anomalies for Stranger Things Town
+- [ ] Description for Stranger Things Town
+- [ ] Flesh out The Upside Down Town
+- [ ] 3 Puppets for The Upside Down Town
+- [ ] 3 Anomalies for The Upside Down Town
+- [ ] Shop Items for The Upside Down Town
+- [ ] Flesh out Final Fight Town
+- [ ] 1 Puppet for Final Fight Town
+- [ ] 1 Anomaly for Final Fight Town
+- [ ] Build out the puppet show loop
+- [ ] Create final Release of game
+- [ ] Laugh while friends play the game or let them laugh while I do? whatever
